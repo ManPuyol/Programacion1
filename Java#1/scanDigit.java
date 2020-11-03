@@ -21,15 +21,8 @@ public class scanDigit {
         b = (b-((b/100)*100))/10;
         //c = (c-((c/100)*100));
         c = c-((c/10)*10);
-        
 
-
-
-
-        System.out.println("" + a + "" + b + "" + c);
-
-
-        
+        System.out.println("" + a + "" + b + "" + c);    
     }
 
 }
