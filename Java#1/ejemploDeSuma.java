@@ -1,9 +1,9 @@
-import java.util.Scanner;
+//import java.util.Scanner;
 
 public class ejemploDeSuma {
     public static void main(String[] args) {
 
-        Scanner add = new Scanner(System.in);
+        //Scanner add = new Scanner(System.in);
 
         int a = 5;
         int b = 7;
