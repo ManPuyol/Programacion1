@@ -8,7 +8,7 @@ public class Adiviname {
 
 
         //numero entre 0 y 100
-        rand = (int) ((Math.random()*(100-1))+1);
+        rand = (int) ((Math.random()*(100-1+1))+1);
 
         System.out.print("Adivina el numero que estoy pensando del 1 al 100 : ");
         userNum = get.nextInt();
