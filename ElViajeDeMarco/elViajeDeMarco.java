@@ -3,14 +3,16 @@ public class elViajeDeMarco {
     //int rand = (int) (Math.random()*100);
     public static void main(String[] args) {
 
-    //Movimiento De Marco
         
         double velocidadMarco, tiempoMarco, velocidadMadre, tiempoMadre, alcanceMarco, alcanceMadre, distancia;;
-        int climaMarco, climaMadre, randMono, emocion;
+        int climaMarco, climaMadre, randMono, emocion, dia ;
         boolean modoDebug = true;
-
+        
         distancia = 350;
-
+        dia = 1;
+    
+        //Movimiento De Marco
+        
         System.out.println("----------------------------------------");
         System.out.println("Dia de Marco");
         System.out.println("----------------------------------------");
@@ -44,7 +46,7 @@ public class elViajeDeMarco {
                 //Mono se cansa
                 randMono = (int) (Math.random()*100);
                 if (randMono < 15){
-                    System.out.println("Mono se cansa");
+                    System.out.println("El Mono se cansa");
                 velocidadMarco = velocidadMarco * 0.9;
                 }else{ 
                     if (modoDebug) {
@@ -54,7 +56,7 @@ public class elViajeDeMarco {
                 //Mono se escapa
                 randMono = (int) (Math.random()*100);
                 if (randMono < 25){
-                    System.out.println("Mono se escapa");
+                    System.out.println("El Mono se escapa");
                 tiempoMarco = tiempoMarco - 2;
                 } else{ 
                     if (modoDebug) {
@@ -110,22 +112,38 @@ public class elViajeDeMarco {
             System.out.println("> Probabilidad de clima Madre: " + climaMadre);
         }
         System.out.println("Alcance de la Madre: "+alcanceMadre);
+        System.out.println("");
 
     //Calculo de distancia restante
         
         distancia = (distancia + alcanceMadre) - alcanceMarco;
         System.out.println("Distancia Restante: "+ distancia);
 
+        distancia = 48;
+        System.out.println("Distancia MOCK: "+ distancia);
 
         if (distancia < 50) {
             emocion = (int) (Math.random()*100);
+            if (modoDebug) {
+                System.out.println("> Emocion: " +emocion);
+            }
             if (emocion <= 50) { 
                 System.out.println("Marco se emociona y sale corriendo");
                 alcanceMarco = alcanceMarco + 25;
                 distancia = (distancia + alcanceMadre) - alcanceMarco;
+                if (modoDebug) {
+                    System.out.println("> Alcance de Marco emocionado: " + alcanceMarco);
+                }
+                
                 System.out.println("Distancia Restante: "+ distancia);
 
             }
+        }
+
+        if (distancia <= 0) {
+            System.out.println("*****************************************************");
+            System.out.println("Al final del Dia "+ dia +" Marco encontra a su madre!!!");
+            System.out.println("*****************************************************");   
         }
 
 

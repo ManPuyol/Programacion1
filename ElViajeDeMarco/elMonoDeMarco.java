@@ -1,3 +1,5 @@
+package ElViajeDeMarco;
+
 public class elMonoDeMarco {
     public static void main(String[] args) {
         //Lanzar probabilidad
