@@ -69,6 +69,8 @@ public class elViajeDeMarco {
             // Calculo de distancia recorrida de Marco ese dia
             alcanceMarco = velocidadMarco * tiempoMarco;
 
+            
+
             System.out.println("Velocidad de Marco: " + velocidadMarco+ " km/h");
             System.out.println("Tiempo de Marco: " + tiempoMarco+ " h");
             if (modoDebug) {
@@ -119,7 +121,7 @@ public class elViajeDeMarco {
             // Calculo de distancia restante
 
             distancia = (distancia + alcanceMadre) - alcanceMarco;
-            System.out.println("Distancia Restante: " + distancia+ " km");
+            
 
             // BANDERA
             // distancia = 48;
@@ -131,6 +133,7 @@ public class elViajeDeMarco {
                     System.out.println("> Emocion: " + emocion);
                 }
                 if (emocion <= 50) {
+                    System.out.println("A Marco le han anunciado que su madre esta cerca");
                     System.out.println("Marco se emociona y sale corriendo");
                     alcanceMarco = alcanceMarco + 25;
                     distancia = (distancia + alcanceMadre) - alcanceMarco;
@@ -138,10 +141,16 @@ public class elViajeDeMarco {
                         System.out.println("> Alcance de Marco emocionado: " + alcanceMarco+ " km");
                     }
 
-                    System.out.println("Distancia Restante: " + distancia+ " km");
-
                 }
             }
+            //Mini Mapa
+            System.out.print("m");
+            for(int i=0;i<((distancia)/5);i=i+1){
+            System.out.print("_");
+            }
+            System.out.println("M");
+            System.out.println("----------------------------------------");
+            System.out.println("Distancia Restante: " + distancia+ " km");
             System.out.println("----------------------------------------");
 
         }
