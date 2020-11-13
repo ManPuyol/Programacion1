@@ -6,17 +6,15 @@ public class formatoDecimal {
         double numeroAleatorio = Math.random();
         System.out.println(numeroAleatorio);
 
-        double randF = (double) ((int)( numeroAleatorio * 1000));//Saco 3 primeras cifras significativas
-        double randFF= ((double)((int)(randF/10))/100);//tomo el numero formateado en 2 cifras significativas
-       // System.out.println(randF);
-        //System.out.println(randFF);
+        double numeroAFormatear = (double) ((int)( numeroAleatorio * 1000));//Saco 3 primeras cifras significativas
+        double numeroFormateado= ((double)((int)(numeroAFormatear/10))/100);//tomo el numero formateado en 2 cifras significativas
             //tercer digito
-            int tercerDigito = (int)(randF-(((int)(randF/10))*10));
+            int tercerDigito = (int)(numeroAFormatear-(((int)(numeroAFormatear/10))*10));
             //System.out.println(tercerDigito);
             if (tercerDigito >= 5){
-                randFF = randFF + 0.01; 
+                numeroFormateado = numeroFormateado + 0.01; 
             }
-            System.out.println(randFF);
+            System.out.println(numeroFormateado);
 
 
 
