@@ -1,3 +1,5 @@
+package ElViajeDeMarco;
+
 public class elViajeDeMarco {
     // Lanzar probabilidad
     // int rand = (int) (Math.random()*100);
@@ -23,8 +25,8 @@ public class elViajeDeMarco {
             tiempoMarco = (Math.random() * (10 - 8)) + 8;
 
             if (modoDebug) {
-                System.out.println("> Velocidad de Marco: " + velocidadMarco+ " km/h");
-                System.out.println("> Tiempo de Marco: " + tiempoMarco+ " h");
+                System.out.println("> Velocidad de Marco: " + velocidadMarco + " km/h");
+                System.out.println("> Tiempo de Marco: " + tiempoMarco + " h");
             }
 
             // Clima Del Dia
@@ -69,14 +71,12 @@ public class elViajeDeMarco {
             // Calculo de distancia recorrida de Marco ese dia
             alcanceMarco = velocidadMarco * tiempoMarco;
 
-            
-
-            System.out.println("Velocidad de Marco: " + velocidadMarco+ " km/h");
-            System.out.println("Tiempo de Marco: " + tiempoMarco+ " h");
+            System.out.println("Velocidad de Marco: " + velocidadMarco + " km/h");
+            System.out.println("Tiempo de Marco: " + tiempoMarco + " h");
             if (modoDebug) {
                 System.out.println("> Probabilidad de clima Marco: " + climaMarco);
             }
-            System.out.println("Alcance de Marco: " + alcanceMarco+ " km");
+            System.out.println("Alcance de Marco: " + alcanceMarco + " km");
 
             // Movimiento de la Madre
             System.out.println("----------------------------------------");
@@ -87,8 +87,8 @@ public class elViajeDeMarco {
             tiempoMadre = (Math.random() * (9 - 6)) + 6;
 
             if (modoDebug) {
-                System.out.println("Velocidad de La Madre: " + velocidadMadre+ " km/h");
-                System.out.println("Tiempo de La Madre: " + tiempoMadre+ " h");
+                System.out.println("Velocidad de La Madre: " + velocidadMadre + " km/h");
+                System.out.println("Tiempo de La Madre: " + tiempoMadre + " h");
             }
 
             // Clima Del Dia
@@ -110,18 +110,17 @@ public class elViajeDeMarco {
             // Calculo de distancia recorrida de la madre de Marco ese dia
             alcanceMadre = velocidadMadre * tiempoMadre;
 
-            System.out.println("Velocidad de la Madre: " + velocidadMadre+ " km/h");
-            System.out.println("Tiempo de la Madre: " + tiempoMadre+ " h");
+            System.out.println("Velocidad de la Madre: " + velocidadMadre + " km/h");
+            System.out.println("Tiempo de la Madre: " + tiempoMadre + " h");
             if (modoDebug) {
                 System.out.println("> Probabilidad de clima Madre: " + climaMadre);
             }
-            System.out.println("Alcance de la Madre: " + alcanceMadre+ " km");
+            System.out.println("Alcance de la Madre: " + alcanceMadre + " km");
             System.out.println("");
 
             // Calculo de distancia restante
 
             distancia = (distancia + alcanceMadre) - alcanceMarco;
-            
 
             // BANDERA
             // distancia = 48;
@@ -138,19 +137,19 @@ public class elViajeDeMarco {
                     alcanceMarco = alcanceMarco + 25;
                     distancia = (distancia + alcanceMadre) - alcanceMarco;
                     if (modoDebug) {
-                        System.out.println("> Alcance de Marco emocionado: " + alcanceMarco+ " km");
+                        System.out.println("> Alcance de Marco emocionado: " + alcanceMarco + " km");
                     }
 
                 }
             }
-            //Mini Mapa
+            // Mini Mapa
             System.out.print("m");
-            for(int i=0;i<((distancia)/5);i=i+1){
-            System.out.print("_");
+            for (int i = 0; i < ((distancia) / 5); i = i + 1) {
+                System.out.print("_");
             }
             System.out.println("M");
             System.out.println("----------------------------------------");
-            System.out.println("Distancia Restante: " + distancia+ " km");
+            System.out.println("Distancia Restante: " + distancia + " km");
             System.out.println("----------------------------------------");
 
         }

@@ -5,7 +5,6 @@ public class ejemploDeMenu {
 
         int opcionDelUsuario;
         boolean programaActivo = true;
-
         Scanner cin = new Scanner(System.in);
         do {
             System.out.println("1 Ingresar Usuario");

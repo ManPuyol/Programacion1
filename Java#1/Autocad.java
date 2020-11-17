@@ -13,24 +13,26 @@ public class Autocad {
             // Imprimir Ventanas
             ventanas = (int) (Math.random() * 5);
             for (int j = 1; j <= ventanas; j++) {
+                // Ventana abierta o cerrada--------
                 int abierta = (int) (Math.random() * 100);
                 if (abierta > 50) {
+                    // Luz encendida o apagada------
                     int encendida = (int) (Math.random() * 100);
                     if (encendida > 50) {
                         System.out.print("[*]");
                     } else {
                         System.out.print("[ ]");
-                    }
+                    } // ----------------------------
                 } else {
                     System.out.print("[#]");
-                }
+                } // --------------------------------
             }
-            // Espacios--------------------------
+            // Espacios----------------------------
             int espacios = 4 - ventanas;
             for (int j = 0; j < espacios; j++) {
                 System.out.print("   ");
             }
-            // -----------------------------------
+            // ------------------------------------
             System.out.println("|");
         }
         System.out.println("==============");
