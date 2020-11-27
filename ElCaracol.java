@@ -3,6 +3,8 @@ import java.util.Scanner;
 public class ElCaracol {
     public static void main(String[] args) {
 
+        //  Examen de Manuel Ortega Puyol
+
         // Variable que usaremos para pausar cada turno
         Scanner turno = new Scanner(System.in);
         String tiempo;
@@ -109,7 +111,10 @@ public class ElCaracol {
             System.out.println("  [][][][][][][][]");
 
             // dia siguiente
-            dia = dia + 1;
+
+            if (posicionDeCaracol > 0) {
+                dia = dia + 1;
+            }
 
             tiempo = turno.nextLine();
         }
