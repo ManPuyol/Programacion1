@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class ElCaracol {
     public static void main(String[] args) {
 
-        //  Examen de Manuel Ortega Puyol
+        // Examen Parcial de Manuel Ortega Puyol
 
         // Variable que usaremos para pausar cada turno
         Scanner turno = new Scanner(System.in);
