@@ -38,7 +38,7 @@ public class AulasDeBiblioteca {
                     do {
 
                         opcionDelUsuario = (cin.nextInt()) - 1;
-                        if (opcionDelUsuario > 5) {
+                        if (opcionDelUsuario > 5 || opcionDelUsuario < 0) {
                             System.out.print("Aula inexistente porfavor selecione otra aula : ");
                         }
                     } while (opcionDelUsuario > 5 || opcionDelUsuario < 0);
@@ -66,7 +66,7 @@ public class AulasDeBiblioteca {
                         if (opcionDelUsuario > 5 || opcionDelUsuario < 0) {
                             System.out.println("Aula inexistente porfavor selecione otra aula : ");
                         }
-                    } while (opcionDelUsuario > 5);
+                    } while (opcionDelUsuario > 5 || opcionDelUsuario < 0);
 
                     aulas[opcionDelUsuario] = null;
 
