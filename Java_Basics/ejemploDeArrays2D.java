@@ -5,7 +5,7 @@ public class ejemploDeArrays2D {
         boolean salirDelJuego = false;
         String opcionDelUsuario;
 
-        int x = 0, y = 0, antorcha = 3;
+        int x = 8, y = 8, antorcha = 3, viewport = 7, miFila = 0, miColumna = 0;
         int[][] unArray2D = { { 0, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 4, 4, 5, 5 },
                 { 0, 1, 2, 1, 1, 1, 1, 2, 0, 0, 2, 2, 0, 0, 2, 2, 2, 2, 2, 2, 2, 4, 4, 4, 5, 5 },
                 { 0, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 4, 4, 5, 5 },
@@ -26,48 +26,58 @@ public class ejemploDeArrays2D {
                 { 1, 0, 0, 0, 0, 0, 1, 4, 2, 2, 2, 2, 2, 2, 2, 4, 0, 0, 4, 6, 2, 2, 6, 0, 0, 1 },
                 { 1, 0, 1, 0, 0, 0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 4, 2, 4, 6, 2, 2, 6, 1, 0, 1 },
                 { 1, 1, 1, 0, 0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 4, 4, 4, 6, 2, 2, 6, 1, 0, 1 }, };
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
 
         do {
-            System.out.print("\033[H\033[2J");
-            System.out.flush();
-            System.out.println("--------------------------------------------------------------------");
-        for (int miFila = 0; miFila < unArray2D.length; miFila++) {
-            //
-            for (int miColumna = 0; miColumna < unArray2D[miFila].length; miColumna++) {
-                if (miFila == y && miColumna == x) {
-                    System.out.print("<M>");
-                    // } else if (Math.abs(miColumna - x) < antorcha && Math.abs(miFila - y) <
-                    // antorcha) {// CONDICION PARA ANTORCHA CUADRADA
-                } else if (Math.pow(miColumna - x, 2) + Math.pow(miFila - y, 2) <= Math.pow(antorcha, 2)) { // CONDICION
-                                                                                                            // PARA
-                                                                                                            // ANTORCHA
-                                                                                                            // CIRCULAR
-                    if (unArray2D[miFila][miColumna] == 0) {
-                        System.out.print(" . ");
-                    } else if (unArray2D[miFila][miColumna] == 1) {
-                        System.out.print("[#]");
-                    } else if (unArray2D[miFila][miColumna] == 2) {
-                        System.out.print(":..");
-                    } else if (unArray2D[miFila][miColumna] == 3) {
-                        System.out.print("~~~");
-                    } else if (unArray2D[miFila][miColumna] == 4) {
-                        System.out.print("*.*");
-                    } else if (unArray2D[miFila][miColumna] == 5) {
-                        System.out.print("*O*");
-                    } else if (unArray2D[miFila][miColumna] == 6) {
-                        System.out.print(":::");
-                    }
-                } else {
-                    System.out.print("???");
-                }
+            System.out.print("\033[0;0H");
+             System.out.flush();
+             System.out.println("---------------------------------------");
+             for (miFila = 0; miFila < unArray2D.length; miFila++) {// RECORRER FILA
 
+                 if (Math.abs(miFila - y) < viewport) { // CONDICIONAL VIEWPORT FILA
+
+                     for (miColumna = 0; miColumna < unArray2D[miFila].length; miColumna++) {// RECORRER COLUMNA
+
+                         if (Math.abs(miColumna - x) < viewport) { // CONDICIONAL VIEWPORT COLUMNA
+
+                    if (miFila == y && miColumna == x) {
+                        System.out.print("<M>");
+                        // } else if (Math.abs(miColumna - x) < antorcha && Math.abs(miFila - y) <
+                        // antorcha) {// CONDICION PARA ANTORCHA CUADRADA
+                    } else if (Math.pow(miColumna - x, 2) + Math.pow(miFila - y, 2) <= Math.pow(antorcha, 2)) { // CONDICION
+                                                                                                                // PARA
+                                                                                                                // ANTORCHA
+                                                                                                                // CIRCULAR
+                        if (unArray2D[miFila][miColumna] == 0) {
+                            System.out.print(" . ");
+                        } else if (unArray2D[miFila][miColumna] == 1) {
+                            System.out.print("[#]");
+                        } else if (unArray2D[miFila][miColumna] == 2) {
+                            System.out.print(":..");
+                        } else if (unArray2D[miFila][miColumna] == 3) {
+                            System.out.print("~~~");
+                        } else if (unArray2D[miFila][miColumna] == 4) {
+                            System.out.print("*.*");
+                        } else if (unArray2D[miFila][miColumna] == 5) {
+                            System.out.print("*O*");
+                        } else if (unArray2D[miFila][miColumna] == 6) {
+                            System.out.print(":::");
+                        }
+                    } else {
+                        System.out.print("   ");/// ??? espacios invicibles
+                    }
+                }
             }
-            System.out.println("");
+            System.out.println("");// FIN DE LA COLUMNA Y ENTRA A LA SIGUIENTE FILA
+
+        }
         }
         if (antorcha == 10000) {
             antorcha = 3;
         }
-        System.out.println("----------------------------------------------------------------------");
+        System.out.println("---------------------------------------");
+        System.out.println("Ingrese opcion w/a/s/d (f:Salir)");
 
         opcionDelUsuario = in.nextLine();
 
