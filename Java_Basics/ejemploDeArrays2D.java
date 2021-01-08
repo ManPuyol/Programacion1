@@ -1,5 +1,12 @@
 import java.util.Scanner;
+
 public class ejemploDeArrays2D {
+
+    public static void Endline(int viewport) {
+        for (int i = 0; i < (viewport * 2) - 1; i++) {
+            System.out.print("---");
+        }
+    }
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         boolean salirDelJuego = false;
@@ -31,71 +38,76 @@ public class ejemploDeArrays2D {
 
         do {
             System.out.print("\033[0;0H");
-             System.out.flush();
-             System.out.println("---------------------------------------");
-             for (miFila = 0; miFila < unArray2D.length; miFila++) {// RECORRER FILA
+            System.out.flush();
 
-                 if (Math.abs(miFila - y) < viewport) { // CONDICIONAL VIEWPORT FILA
+            Endline(viewport);// Imprime linea punteada del inicio
+            System.out.println("");
+            for (miFila = 0; miFila < unArray2D.length; miFila++) {// RECORRER FILA
 
-                     for (miColumna = 0; miColumna < unArray2D[miFila].length; miColumna++) {// RECORRER COLUMNA
+                if (Math.abs(miFila - y) < viewport) { // CONDICIONAL VIEWPORT FILA
 
-                         if (Math.abs(miColumna - x) < viewport) { // CONDICIONAL VIEWPORT COLUMNA
+                    for (miColumna = 0; miColumna < unArray2D[miFila].length; miColumna++) {// RECORRER COLUMNA
 
-                    if (miFila == y && miColumna == x) {
-                        System.out.print("<M>");
-                        // } else if (Math.abs(miColumna - x) < antorcha && Math.abs(miFila - y) <
-                        // antorcha) {// CONDICION PARA ANTORCHA CUADRADA
-                    } else if (Math.pow(miColumna - x, 2) + Math.pow(miFila - y, 2) <= Math.pow(antorcha, 2)) { // CONDICION
-                                                                                                                // PARA
-                                                                                                                // ANTORCHA
-                                                                                                                // CIRCULAR
-                        if (unArray2D[miFila][miColumna] == 0) {
-                            System.out.print(" . ");
-                        } else if (unArray2D[miFila][miColumna] == 1) {
-                            System.out.print("[#]");
-                        } else if (unArray2D[miFila][miColumna] == 2) {
-                            System.out.print(":..");
-                        } else if (unArray2D[miFila][miColumna] == 3) {
-                            System.out.print("~~~");
-                        } else if (unArray2D[miFila][miColumna] == 4) {
-                            System.out.print("*.*");
-                        } else if (unArray2D[miFila][miColumna] == 5) {
-                            System.out.print("*O*");
-                        } else if (unArray2D[miFila][miColumna] == 6) {
-                            System.out.print(":::");
+                        if (Math.abs(miColumna - x) < viewport) { // CONDICIONAL VIEWPORT COLUMNA
+
+                            if (miFila == y && miColumna == x) {
+                                System.out.print("<M>");
+                                // } else if (Math.abs(miColumna - x) < antorcha && Math.abs(miFila - y) <
+                                // antorcha) {// CONDICION PARA ANTORCHA CUADRADA
+                            } else if (Math.pow(miColumna - x, 2) + Math.pow(miFila - y, 2) <= Math.pow(antorcha, 2)) { // CONDICION
+                                                                                                                        // PARA
+                                                                                                                        // ANTORCHA
+                                                                                                                        // CIRCULAR
+                                if (unArray2D[miFila][miColumna] == 0) {
+                                    System.out.print(" . ");
+                                } else if (unArray2D[miFila][miColumna] == 1) {
+                                    System.out.print("[#]");
+                                } else if (unArray2D[miFila][miColumna] == 2) {
+                                    System.out.print(":..");
+                                } else if (unArray2D[miFila][miColumna] == 3) {
+                                    System.out.print("~~~");
+                                } else if (unArray2D[miFila][miColumna] == 4) {
+                                    System.out.print("*.*");
+                                } else if (unArray2D[miFila][miColumna] == 5) {
+                                    System.out.print("*O*");
+                                } else if (unArray2D[miFila][miColumna] == 6) {
+                                    System.out.print(":::");
+                                }
+                            } else {
+                                System.out.print("   ");/// ??? espacios invicibles
+                            }
                         }
-                    } else {
-                        System.out.print("   ");/// ??? espacios invicibles
                     }
+                    System.out.println("");// FIN DE LA COLUMNA Y ENTRA A LA SIGUIENTE FILA
+
                 }
             }
-            System.out.println("");// FIN DE LA COLUMNA Y ENTRA A LA SIGUIENTE FILA
+            if (antorcha == 10000) {
+                antorcha = 3;
+            }
+            Endline(viewport);// Imprime linea punteada del final
+            // System.out.println("---------------------------------------");
+            System.out.println("\nIngrese opcion w/a/s/d (f:Salir)");
 
-        }
-        }
-        if (antorcha == 10000) {
-            antorcha = 3;
-        }
-        System.out.println("---------------------------------------");
-        System.out.println("Ingrese opcion w/a/s/d (f:Salir)");
+            opcionDelUsuario = in.nextLine();
 
-        opcionDelUsuario = in.nextLine();
+            if (opcionDelUsuario.equals("f")) {
+                salirDelJuego = true;
+            } else if (opcionDelUsuario.equals("w")) {
+                y--;
+            } else if (opcionDelUsuario.equals("a")) {
+                x--;
+            } else if (opcionDelUsuario.equals("s")) {
+                y++;
+            } else if (opcionDelUsuario.equals("d")) {
+                x++;
+            } else if (opcionDelUsuario.equals("g")) {
+                antorcha = 10000;
+            }
 
-        if (opcionDelUsuario.equals("f")) {
-            salirDelJuego = true;
-        } else if (opcionDelUsuario.equals("w")) {
-            y--;
-        } else if (opcionDelUsuario.equals("a")) {
-            x--;
-        } else if (opcionDelUsuario.equals("s")) {
-            y++;
-        } else if (opcionDelUsuario.equals("d")) {
-            x++;
-        } else if (opcionDelUsuario.equals("g")) {
-            antorcha = 10000;
-        }
+        } while (!salirDelJuego);
 
-    } while (!salirDelJuego);
     }
-}
 
+    
+}
