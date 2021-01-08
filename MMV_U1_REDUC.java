@@ -156,7 +156,7 @@ public class MMV_U1_REDUC{
 		Scanner entrada = new Scanner(System.in);
 		String opcionDelUsuario;
 		boolean salirDelJuego=false;
-		int miFila=0, 			miColumna=0;
+		int miFila = 0, miColumna = 0;
 		int posicionFila=57, posicionColumna=27;
 		int viewport = 8;
 		int alcanceAntorcha = 100;
@@ -167,17 +167,52 @@ public class MMV_U1_REDUC{
 		do{
 
 			// Intento mugre de hora 
-				minutos=minutos+5;
-				if (minutos==60){hora=hora+1;minutos=0;}
+			minutos = minutos + 55;
+			if (minutos >= 60) {
+				hora = hora + 1;
+				minutos = 0;
+			}
 				if (hora==24){hora=0;}
-
+					
 			// Fin de intento mugre
+			
+			// Sol
+			if (hora == 4) {
+				alcanceAntorcha = 3;
+			} else if (hora == 5) {
+				alcanceAntorcha = 4;
+			} else if (hora == 6) {
+				alcanceAntorcha = 5;
+			} else if (hora == 7) {
+				alcanceAntorcha = 100;
+			} else if (hora == 17) {
+				alcanceAntorcha = 10;
+			} else if (hora == 18) {
+				alcanceAntorcha = 7;
+			} else if (hora == 19) {
+				alcanceAntorcha = 5;
+			} else if (hora == 20) {
+				alcanceAntorcha = 4;
+			} else if (hora == 21) {
+				alcanceAntorcha = 2;
+			}
+			// Fin de Sol
 
 			System.out.print("\033[0;0H");System.out.flush();	// <-- 	En lugar de borrar pantalla, reposiciono el cursor
 																				// 		en el borde superior izquierdo de la pantalla	
 																				//		Con esto se atenúa el parpadeo
 			
 			System.out.print(BARRA);for(int i=0;i<=viewport*2;i=i+1){System.out.print(BARRA);}System.out.println(BARRA);
+			System.out.print(BARRA);
+			for (int i = 0; i <= viewport * 2; i = i + 1) {
+				System.out.print("---");
+			}
+			System.out.println(BARRA);// Aqui va el sol
+			System.out.print(BARRA);
+			for (int i = 0; i <= viewport * 2; i = i + 1) {
+				System.out.print(BARRA);
+			}
+			System.out.println(BARRA);
 
 			// INICIO IMPRESION DEL MAPA 
 			for (miFila=0; miFila<elMundo.length; miFila = miFila+1) {
