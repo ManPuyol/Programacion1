@@ -1,3 +1,4 @@
+
 import java.util.Scanner;
 
 // https://stackoverflow.com/questions/56679782/how-to-use-ansi-escape-sequence-color-codes-for-psreadlineoption-v2-in-powershel
@@ -161,6 +162,7 @@ public class MMV_U1_REDUC{
 		int viewport = 8;
 		int alcanceAntorcha = 100;
 		int hora=6, minutos=55;
+		int recorrido_sol = 0;
 
 		System.out.print("\033[H\033[2J");System.out.flush();// Borro pantalla antes de empezar
 		
@@ -179,22 +181,31 @@ public class MMV_U1_REDUC{
 			// Sol
 			if (hora == 4) {
 				alcanceAntorcha = 3;
+				recorrido_sol = 1;
 			} else if (hora == 5) {
 				alcanceAntorcha = 4;
+				recorrido_sol = 2;
 			} else if (hora == 6) {
 				alcanceAntorcha = 5;
+				recorrido_sol = 3;
 			} else if (hora == 7) {
 				alcanceAntorcha = 100;
+				recorrido_sol = 4;
 			} else if (hora == 17) {
 				alcanceAntorcha = 10;
+				recorrido_sol = 5;
 			} else if (hora == 18) {
 				alcanceAntorcha = 7;
+				recorrido_sol = 6;
 			} else if (hora == 19) {
 				alcanceAntorcha = 5;
+				recorrido_sol = 7;
 			} else if (hora == 20) {
 				alcanceAntorcha = 4;
+				recorrido_sol = 8;
 			} else if (hora == 21) {
 				alcanceAntorcha = 2;
+				recorrido_sol = 1;
 			}
 			// Fin de Sol
 
@@ -205,9 +216,17 @@ public class MMV_U1_REDUC{
 			System.out.print(BARRA);for(int i=0;i<=viewport*2;i=i+1){System.out.print(BARRA);}System.out.println(BARRA);
 			System.out.print(BARRA);
 			for (int i = 0; i <= viewport * 2; i = i + 1) {
-				System.out.print("---");
+				if(hora >= 4 && hora < 18){
+					System.out.print(CIELO);
+				}
+				else if ( hora >= 18){
+					System.out.print(NOCHE);
+				}
+				
 			}
-			System.out.println(BARRA);// Aqui va el sol
+			
+			
+			System.out.println(BARRA);
 			System.out.print(BARRA);
 			for (int i = 0; i <= viewport * 2; i = i + 1) {
 				System.out.print(BARRA);
@@ -386,9 +405,9 @@ public class MMV_U1_REDUC{
 															INICIO + WHITE 			+ BLACK_BACKGROUND + "\\" + RESET + 
 															INICIO + WHITE_BOLD		+ BLACK_BACKGROUND + "^" + RESET;	
 
-	public static final String SOL	 				= 	INICIO + YELLOW_BOLD + BLUE_BACKGROUND + "(O)" + RESET;
+	public static final String SOL	 				= 	INICIO + YELLOW_BOLD + YELLOW_BACKGROUND_BRIGHT + "(O)" + RESET;
 	public static final String CIELO 				= 	INICIO + BLUE_BOLD + CYAN_BACKGROUND_BRIGHT + "   " + RESET;
-
+	public static final String NOCHE				= 	INICIO + BLUE_BOLD + BLACK_BOLD_BRIGHT  + "   " + RESET;
 
  
 }
