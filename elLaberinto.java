@@ -31,7 +31,11 @@ public class elLaberinto{
 			{1,0,0,0,1,0,1,7,1,6,1,0,0,1,1,1,0,1,0,1,1,1,0,0,1,1,1,0,1},
 			{0,0,0,0,1,0,1,0,1,0,1,0,0,0,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0}
 		};
+		System.out.print("\033[0;0H");
+		System.out.flush();
 		do {
+			System.out.print("\033[0;0H");
+			System.out.flush();
 			// INICIO IMPRESION DE MAPA (INCLUYE AL PERSONAJE) 
 				System.out.print("+==="); 
 				for (miFila=0;miFila<elMundo[0].length-2; miFila=miFila+1){System.out.print("===");};
