@@ -163,6 +163,7 @@ public class MMV_U1_REDUC{
 		int alcanceAntorcha = 100;
 		int hora=6, minutos=55;
 		int recorrido_sol = 0;
+		int recorrido_luna = 0;
 
 		System.out.print("\033[H\033[2J");System.out.flush();// Borro pantalla antes de empezar
 		
@@ -179,33 +180,71 @@ public class MMV_U1_REDUC{
 			// Fin de intento mugre
 			
 			// Sol
-			if (hora == 4) {
+			if(hora == 1){
+				alcanceAntorcha = 2;
+				recorrido_luna = 4;
+			}else if (hora == 2) {
 				alcanceAntorcha = 3;
-				recorrido_sol = 1;
+				recorrido_luna = 4;
+			}else if (hora == 3) {
+				alcanceAntorcha = 3;
+				recorrido_luna = 5;
+			}else if (hora == 4) {
+				alcanceAntorcha = 3;
+				recorrido_luna = 6;
 			} else if (hora == 5) {
 				alcanceAntorcha = 4;
-				recorrido_sol = 2;
+				recorrido_luna = 7;
+				recorrido_sol = 0;
 			} else if (hora == 6) {
 				alcanceAntorcha = 5;
-				recorrido_sol = 3;
+				recorrido_sol = 1;
 			} else if (hora == 7) {
 				alcanceAntorcha = 100;
+				recorrido_sol = 1;
+			} else if (hora == 8) {
+				alcanceAntorcha = 100;
+				recorrido_sol = 2;
+			} else if (hora == 9) {
+				alcanceAntorcha = 100;
+				recorrido_sol = 3;
+			} else if (hora == 10) {
+				alcanceAntorcha = 100;
+				recorrido_sol = 3;
+			} else if (hora == 11) {
+				alcanceAntorcha = 100;
 				recorrido_sol = 4;
+			} else if (hora == 12) {
+				alcanceAntorcha = 100;
+				recorrido_sol = 4;
+			} else if (hora == 13) {
+				alcanceAntorcha = 100;
+				recorrido_sol = 5;
+			} else if (hora == 14) {
+				alcanceAntorcha = 100;
+				recorrido_sol = 6;
+			} else if (hora == 15) {
+				alcanceAntorcha = 100;
+				recorrido_sol = 6;
+			} else if (hora == 16) {
+				alcanceAntorcha = 100;
+				recorrido_sol = 7;
 			} else if (hora == 17) {
 				alcanceAntorcha = 10;
-				recorrido_sol = 5;
+				recorrido_sol = 0;
+				recorrido_luna = 1;
 			} else if (hora == 18) {
 				alcanceAntorcha = 7;
-				recorrido_sol = 6;
+				recorrido_luna = 1;
 			} else if (hora == 19) {
-				alcanceAntorcha = 5;
-				recorrido_sol = 7;
-			} else if (hora == 20) {
 				alcanceAntorcha = 4;
-				recorrido_sol = 8;
+				recorrido_luna = 2;
+			} else if (hora == 20) {
+				alcanceAntorcha = 5;
+				recorrido_luna = 2;
 			} else if (hora == 21) {
 				alcanceAntorcha = 2;
-				recorrido_sol = 1;
+				recorrido_luna = 3;
 			}
 			// Fin de Sol
 
@@ -215,17 +254,30 @@ public class MMV_U1_REDUC{
 			
 			System.out.print(BARRA);for(int i=0;i<=viewport*2;i=i+1){System.out.print(BARRA);}System.out.println(BARRA);
 			System.out.print(BARRA);
-			for (int i = 0; i <= viewport * 2; i = i + 1) {
-				if(hora >= 4 && hora < 18){
+			if(hora >= 6 && hora < 17){
+				for(int i = 0;(i < (recorrido_sol * 2))  ; i++ ){
 					System.out.print(CIELO);
 				}
-				else if ( hora >= 18){
+			}else{
+				for(int i = 0;(i < (recorrido_luna * 2))  ; i++ ){
 					System.out.print(NOCHE);
 				}
-				
 			}
-			
-			
+			if(hora >= 6 && hora < 17){
+				System.out.print(SOL);
+			}
+			else{
+				System.out.print(LUNA);
+			}
+			if(hora >= 6 && hora < 17){
+				for(int i = 10; i > 0; i = i - 2){
+					System.out.print(CIELO);
+				}
+			}else{
+				for(int i = 16; i > 16; i = i - 3){
+					System.out.print(NOCHE);
+				}
+			}
 			System.out.println(BARRA);
 			System.out.print(BARRA);
 			for (int i = 0; i <= viewport * 2; i = i + 1) {
@@ -405,6 +457,7 @@ public class MMV_U1_REDUC{
 															INICIO + WHITE 			+ BLACK_BACKGROUND + "\\" + RESET + 
 															INICIO + WHITE_BOLD		+ BLACK_BACKGROUND + "^" + RESET;	
 
+	public static final String LUNA	 				= 	INICIO + YELLOW_BOLD + WHITE_BACKGROUND_BRIGHT + "(((" + RESET;
 	public static final String SOL	 				= 	INICIO + YELLOW_BOLD + YELLOW_BACKGROUND_BRIGHT + "(O)" + RESET;
 	public static final String CIELO 				= 	INICIO + BLUE_BOLD + CYAN_BACKGROUND_BRIGHT + "   " + RESET;
 	public static final String NOCHE				= 	INICIO + BLUE_BOLD + BLACK_BOLD_BRIGHT  + "   " + RESET;
