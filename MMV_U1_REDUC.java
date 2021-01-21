@@ -164,6 +164,7 @@ public class MMV_U1_REDUC{
 		int hora=6, minutos=55;
 		int recorrido_sol = 0;
 		int recorrido_luna = 0;
+		int debug = 0;
 
 		System.out.print("\033[H\033[2J");System.out.flush();// Borro pantalla antes de empezar
 		
@@ -191,11 +192,11 @@ public class MMV_U1_REDUC{
 				recorrido_luna = 5;
 			}else if (hora == 4) {
 				alcanceAntorcha = 3;
-				recorrido_luna = 6;
+				
 			} else if (hora == 5) {
 				alcanceAntorcha = 4;
 				recorrido_luna = 7;
-				recorrido_sol = 0;
+				recorrido_sol = 1;
 			} else if (hora == 6) {
 				alcanceAntorcha = 5;
 				recorrido_sol = 1;
@@ -210,35 +211,35 @@ public class MMV_U1_REDUC{
 				recorrido_sol = 3;
 			} else if (hora == 10) {
 				alcanceAntorcha = 100;
-				recorrido_sol = 3;
+				recorrido_sol = 4;
 			} else if (hora == 11) {
 				alcanceAntorcha = 100;
-				recorrido_sol = 4;
+				recorrido_sol = 5;
 			} else if (hora == 12) {
 				alcanceAntorcha = 100;
-				recorrido_sol = 4;
+				recorrido_sol = 6;
 			} else if (hora == 13) {
 				alcanceAntorcha = 100;
-				recorrido_sol = 5;
+				recorrido_sol = 7;
 			} else if (hora == 14) {
 				alcanceAntorcha = 100;
-				recorrido_sol = 6;
+				recorrido_sol = 8;
 			} else if (hora == 15) {
 				alcanceAntorcha = 100;
-				recorrido_sol = 6;
+				recorrido_sol = 9;
 			} else if (hora == 16) {
 				alcanceAntorcha = 100;
-				recorrido_sol = 7;
+				recorrido_sol = 10;
 			} else if (hora == 17) {
 				alcanceAntorcha = 10;
-				recorrido_sol = 0;
+				recorrido_sol = 13;
 				recorrido_luna = 1;
 			} else if (hora == 18) {
 				alcanceAntorcha = 7;
-				recorrido_luna = 1;
+				recorrido_sol = 14;
 			} else if (hora == 19) {
 				alcanceAntorcha = 4;
-				recorrido_luna = 2;
+				recorrido_sol = 16;
 			} else if (hora == 20) {
 				alcanceAntorcha = 5;
 				recorrido_luna = 2;
@@ -254,30 +255,18 @@ public class MMV_U1_REDUC{
 			
 			System.out.print(BARRA);for(int i=0;i<=viewport*2;i=i+1){System.out.print(BARRA);}System.out.println(BARRA);
 			System.out.print(BARRA);
-			if(hora >= 6 && hora < 17){
-				for(int i = 0;(i < (recorrido_sol * 2))  ; i++ ){
-					System.out.print(CIELO);
+			if(hora >= 7 && hora <= 19){
+		
+				for(int i = 0; i < recorrido_sol; i++) {
+					System.out.print(BARRA);
 				}
-			}else{
-				for(int i = 0;(i < (recorrido_luna * 2))  ; i++ ){
-					System.out.print(NOCHE);
-				}
-			}
-			if(hora >= 6 && hora < 17){
-				System.out.print(SOL);
+			    System.out.print(SOL);
 			}
 			else{
-				System.out.print(LUNA);
+				System.out.print(BARRA);
 			}
-			if(hora >= 6 && hora < 17){
-				for(int i = 10; i > 0; i = i - 2){
-					System.out.print(CIELO);
-				}
-			}else{
-				for(int i = 16; i > 16; i = i - 3){
-					System.out.print(NOCHE);
-				}
-			}
+
+			
 			System.out.println(BARRA);
 			System.out.print(BARRA);
 			for (int i = 0; i <= viewport * 2; i = i + 1) {
@@ -324,7 +313,7 @@ public class MMV_U1_REDUC{
 			System.out.print("Lat:["+posicionFila+"] Long:["+posicionColumna+"] - ");
 			System.out.println("["+hora+"]h:["+minutos+"]m     ");			
 			System.out.println();
-			System.out.println("Ingrese opcion: w/a/s/d (f:Salir) (v:Viewport)");
+			System.out.println("Ingrese opcion: w/a/s/d (f:Salir) (v:Viewport) " + debug);
 			opcionDelUsuario=entrada.nextLine();
 			// Fin de impresión de data extra y menu de usuario
 			
