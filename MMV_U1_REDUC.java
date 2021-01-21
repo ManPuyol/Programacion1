@@ -7,6 +7,11 @@ public class MMV_U1_REDUC{
 
 	public static void main(String[] args){
 
+		
+	}
+		
+
+	public static int Laberinto(){
 		int[][] elMundo = {
 			{3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3},
 			{3,3,3,3,3,3,3,7,7,2,2,3,3,3,3,3,3,3,2,2,3,3,3,3,3,3,3,3,3,3,3,3,3,2,2,2,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3},
@@ -163,7 +168,9 @@ public class MMV_U1_REDUC{
 		int hora=6, minutos=55;
 
 		System.out.print("\033[H\033[2J");System.out.flush();// Borro pantalla antes de empezar
-		
+	
+
+	public static int ImpresionLaberinto() {
 		do{
 
 			// Intento mugre de hora 
@@ -267,9 +274,7 @@ public class MMV_U1_REDUC{
 			// FIN DEL ANALISIS DE MOVIMIENTO
 
 		}while (!salirDelJuego);
-	}
-
-	// Zona de constantes ANSI para mejorar la visualización de gráficos ASCII
+		// Zona de constantes ANSI para mejorar la visualización de gráficos ASCII
 
 	public static final String RESET = "\033[0m";  	// Text Reset
 	public static final String INICIO = "\033[";		// Inicio de la cadena de color
@@ -389,6 +394,10 @@ public class MMV_U1_REDUC{
 	public static final String SOL	 				= 	INICIO + YELLOW_BOLD + BLUE_BACKGROUND + "(O)" + RESET;
 	public static final String CIELO 				= 	INICIO + BLUE_BOLD + CYAN_BACKGROUND_BRIGHT + "   " + RESET;
 
+	
+	}
+
+
+	
 
  
-}
