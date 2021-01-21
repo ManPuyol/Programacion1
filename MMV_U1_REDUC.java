@@ -360,7 +360,7 @@ public class MMV_U1_REDUC{
 	public static final String CYAN_BOLD 						= "1;36";   			// CYAN
 	public static final String WHITE_BOLD 						= "1;37";  				// WHITE
 
-	// Subrayado
+	// Subrayado -
 	public static final String BLACK_UNDERLINED 				= "4;30";  				// BLACK
 	public static final String RED_UNDERLINED 				= "4;31";    			// RED
 	public static final String GREEN_UNDERLINED 				= "4;32";  				// GREEN
