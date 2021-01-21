@@ -1,3 +1,5 @@
+package Java_Basics;
+
 import java.util.Scanner;
 
 public class ejemploDeArrays2D {

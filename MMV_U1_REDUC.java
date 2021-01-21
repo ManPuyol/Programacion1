@@ -313,17 +313,21 @@ public class MMV_U1_REDUC{
 			System.out.print("Lat:["+posicionFila+"] Long:["+posicionColumna+"] - ");
 			System.out.println("["+hora+"]h:["+minutos+"]m     ");			
 			System.out.println();
-			System.out.println("Ingrese opcion: w/a/s/d (f:Salir) (v:Viewport) " + debug);
+			System.out.println("Ingrese opcion: w/a/s/d (f:Salir) (p:Pared) (v:Viewport)");
 			opcionDelUsuario=entrada.nextLine();
 			// Fin de impresión de data extra y menu de usuario
 			
 			// INICIO DE ANALISIS DEL MOVIMIENTO
+						
 			if(opcionDelUsuario.equalsIgnoreCase("f")){salirDelJuego=true;}
-			else if (opcionDelUsuario.equalsIgnoreCase("w")){posicionFila=posicionFila-1;}
-			else if (opcionDelUsuario.equalsIgnoreCase("s")){posicionFila=posicionFila+1;}
-			else if (opcionDelUsuario.equalsIgnoreCase("a")){posicionColumna=posicionColumna-1;}
-			else if (opcionDelUsuario.equalsIgnoreCase("d")){posicionColumna=posicionColumna+1;}
+			else if (opcionDelUsuario.equalsIgnoreCase("w") && posicionFila>0){if (elMundo[posicionFila-1][posicionColumna]%2==0) {posicionFila = posicionFila-1;}			}
+			else if (opcionDelUsuario.equalsIgnoreCase("s")){if (elMundo[posicionFila +1][posicionColumna]%2==0) {posicionFila = posicionFila+1;}}
+			else if (opcionDelUsuario.equalsIgnoreCase("a")){if (elMundo[posicionFila][posicionColumna-1]%2==0) {posicionColumna = posicionColumna-1;}}
+			else if (opcionDelUsuario.equalsIgnoreCase("d")){if (elMundo[posicionFila][posicionColumna+1]%2==0) {posicionColumna = posicionColumna + 1;}	}
 			else if (opcionDelUsuario.equalsIgnoreCase("v")){viewport=entrada.nextInt();System.out.print("\033[H\033[2J");System.out.flush();}	// Borro pantalla al redimensionar el ViewPort
+			else if (opcionDelUsuario.equalsIgnoreCase("p")) {
+				elMundo[posicionFila][posicionColumna] = 1;
+			} // Borro pantalla al redimensionar el ViewPort
 			// FIN DEL ANALISIS DE MOVIMIENTO
 
 		}while (!salirDelJuego);
