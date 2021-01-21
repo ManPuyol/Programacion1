@@ -382,7 +382,7 @@ public class MMV_U1_REDUC{
 	public static final String CYAN_BACKGROUND 				= ";46m";   			// CYAN
 	public static final String WHITE_BACKGROUND 				= ";47m";  				// WHITE
 
-	// Alta intensidad
+	// Alta intensidad -
 	public static final String BLACK_BRIGHT 					= ";0;90m";  			// BLACK
 	public static final String RED_BRIGHT 						= ";0;91m";    		// RED
 	public static final String GREEN_BRIGHT 					= ";0;92m";  			// GREEN
