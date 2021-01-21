@@ -287,7 +287,7 @@ public class MMV_U1_REDUC{
 						} else if((posicionColumna+viewport>=miColumna)&&(posicionColumna-viewport<=miColumna)) {
 							// IMPRIMO EL MAPA (si debo)
 							if ((Math.pow(posicionFila-miFila,2)+Math.pow(posicionColumna-miColumna,2))<=(Math.pow(alcanceAntorcha,2))) {
-								// INICIO DEL PARSEO
+								// INICIO DEL PARSEO -
 								if      (elMundo[miFila][miColumna]==ID_CAMINO)			{System.out.print(CAMINO);}	
 								else if (elMundo[miFila][miColumna]==ID_PARED)			{System.out.print(PARED);}	
 								else if (elMundo[miFila][miColumna]==ID_CESPED)			{System.out.print(CESPED);}	
