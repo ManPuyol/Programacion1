@@ -3,7 +3,7 @@ import java.util.Scanner;
 // https://stackoverflow.com/questions/56679782/how-to-use-ansi-escape-sequence-color-codes-for-psreadlineoption-v2-in-powershel
 // https://i.stack.imgur.com/KTSQa.png
 
-public class MMV_U1_REDUC{
+public class ElMundo{
 
 	public static void main(String[] args){
 
